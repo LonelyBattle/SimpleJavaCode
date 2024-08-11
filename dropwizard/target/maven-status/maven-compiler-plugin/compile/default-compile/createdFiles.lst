@@ -1,0 +1,4 @@
+com\zs\HelloWorldApplication.class
+com\zs\resource\HelloWorldResource.class
+com\zs\config\HelloWorldConfiguration.class
+com\zs\model\Saying.class

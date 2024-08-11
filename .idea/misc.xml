@@ -4,13 +4,15 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/jersey/pom.xml" />
         <option value="$PROJECT_DIR$/jetty/pom.xml" />
+        <option value="$PROJECT_DIR$/dropwizard/pom.xml" />
+        <option value="$PROJECT_DIR$/jersey/pom.xml" />
         <option value="$PROJECT_DIR$/tomcat/pom.xml" />
+        <option value="$PROJECT_DIR$/fileuploadanddownload/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_18" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
