@@ -27,20 +27,20 @@ public class EmbeddedTomcatServer {
         // 获取临时目录
         String contextPath = "";
 
-        //String docBase = System.getProperty("java.io.tmpdir");
-        //System.out.println("Temporary Directory: " + docBase);
-        //
-        //// 检查并创建临时目录
-        //File tmpDir = new File(docBase);
-        //if (!tmpDir.exists() && !tmpDir.mkdirs()) {
-        //    throw new RuntimeException("Failed to create temporary directory: " + docBase);
-        //}
-        // 获取resources目录的实际路径
-        URL resourceUrl = EmbeddedTomcatServer.class.getClassLoader().getResource("");
-        if (resourceUrl == null) {
-            throw new RuntimeException("Cannot find the resources directory.");
+        String docBase = System.getProperty("java.io.tmpdir");
+        System.out.println("Temporary Directory: " + docBase);
+
+        // 检查并创建临时目录
+        File tmpDir = new File(docBase);
+        if (!tmpDir.exists() && !tmpDir.mkdirs()) {
+            throw new RuntimeException("Failed to create temporary directory: " + docBase);
         }
-        String docBase = get(resourceUrl.getPath()).toString();
+         //获取resources目录的实际路径
+        //URL resourceUrl = EmbeddedTomcatServer.class.getClassLoader().getResource("");
+        //if (resourceUrl == null) {
+        //    throw new RuntimeException("Cannot find the resources directory.");
+        //}
+        //String docBase = get(resourceUrl.getPath()).toString();
 
         // 创建并配置Tomcat的上下文
         Context context = tomcat.addContext(contextPath, docBase);
