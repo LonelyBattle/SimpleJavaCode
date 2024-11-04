@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件上传和下载</title>
+</head>
+<body>
+<h1>文件上传和下载</h1>
+
+<!-- 文件上传部分 -->
+<h2>上传文件</h2>
+<form id="uploadForm">
+    <input type="file" id="fileInput" name="file" required>
+    <button type="submit">上传</button>
+</form>
+<div id="uploadStatus"></div>
+
+<hr>
+
+<!-- 文件下载部分 -->
+<h2>下载文件</h2>
+<form id="downloadForm">
+    <input type="text" id="fileName" name="fileName" placeholder="请输入文件名" required>
+    <button type="submit">下载</button>
+</form>
+<div id="downloadStatus"></div>
+
+<script>
+        // 处理文件上传
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 防止表单默认提交
+
+            const fileInput = document.getElementById('fileInput');
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            fetch('http://localhost:8080/demo/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('uploadStatus').innerText = '上传成功: ' + data;
+            })
+            .catch(error => {
+                document.getElementById('uploadStatus').innerText = '上传失败: ' + error;
+            });
+        });
+
+        // 处理文件下载
+        document.getElementById('downloadForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 防止表单默认提交
+
+            const fileName = document.getElementById('fileName').value;
+            const downloadLink = document.createElement('a');
+            downloadLink.href = `http://localhost:8080/demo/download?filename=${encodeURIComponent(fileName)}`;
+            downloadLink.download = fileName; // 提供默认下载文件名
+            downloadLink.click();
+        });
+    </script>
+</body>
+</html>
