@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zs.test.HusbandMapper">
+
+    <!--<select id="selectOne" parameterType="Integer" resultType="com.zs.entity.Monster">-->
+    <!--    select  * from `monster` where id = #{id}-->
+    <!--</select>-->
+
+    <resultMap id="husbandResultMap" type="com.zs.entity.Husband">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <association property="wife" column="wife_id" select="com.zs.test.WifeMapper.selectOne"/>
+        <!--<association property="wife" javaType="com.zs.entity.Wife">-->
+        <!--    <result property="id" column="wife_id"/>-->
+        <!--    <result property="name" column="wife_id"/>-->
+        <!--</association>-->
+    </resultMap>
+    <!--select * from `husband`,`wife` where `husband`.id = #{id} and `husband`.wife_id = `wife`.id-->
+    <select id="selectOne" parameterType="Integer" resultMap="husbandResultMap">
+        select * from `husband` where id = #{id}
+    </select>
+</mapper>

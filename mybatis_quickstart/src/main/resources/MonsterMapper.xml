@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zs.test.MonsterMapper">
+    <cache eviction="FIFO" flushInterval="60000" size="512" readOnly="true"/>
+    <insert id="addMonster" parameterType="com.zs.entity.Monster">
+        insert into `monster` (`age`,`name`) values (#{age},#{name})
+    </insert>
+
+    <select id="selectOne" parameterType="Integer" resultType="com.zs.entity.Monster">
+        select  * from `monster` where id = #{id}
+    </select>
+</mapper>
