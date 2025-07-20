@@ -13,12 +13,14 @@
         <module name="jetty" />
         <module name="poi" />
         <module name="dropwizard" />
+        <module name="kafka_demo" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="fileuploadanddownload" options="-parameters" />
+      <module name="kafka_demo" options="-parameters" />
       <module name="zookeeper_demo" options="-parameters" />
     </option>
   </component>
