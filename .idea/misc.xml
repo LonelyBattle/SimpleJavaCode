@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/poi/pom.xml" />
         <option value="$PROJECT_DIR$/zookeeper_demo/pom.xml" />
         <option value="$PROJECT_DIR$/kafka_demo/pom.xml" />
+        <option value="$PROJECT_DIR$/elasticserach_demo/pom.xml" />
       </list>
     </option>
   </component>
